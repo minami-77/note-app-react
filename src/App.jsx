@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [notes,setNotes] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   const onAddNote=()=>{
     console.log("New note added.");
@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <div className='App'>
-        <Sidebar onAddNote={onAddNote}/>
+        <Sidebar onAddNote={onAddNote} notes={notes}/>
         <Main/>
       </div>
     </>
