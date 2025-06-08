@@ -2,6 +2,8 @@ import './App.css'
 import Main from './components/Main'
 import Sidebar from './components/Sidebar'
 import { useState } from 'react';
+// need to install to use uuid, "npm i -D react-uuid"
+import uuid from "react-uuid";
 
 function App() {
 
@@ -10,7 +12,8 @@ function App() {
   const onAddNote=()=>{
     console.log("New note added.");
     const newNote= {
-      id:1,
+      // generate random id with uuid
+      id:uuid(),
       title: "New note",
       content: "contents of new note",
       modDate: Date.now(),

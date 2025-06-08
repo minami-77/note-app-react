@@ -11,7 +11,7 @@ const Sidebar = ({onAddNote, notes}) => {
       <div className="app-sidebar-notes">
       {/* map関数 */}
         {notes.map((note) =>
-          <div className="app-sidebar-note">
+          <div className="app-sidebar-note" key={note.id}>
             <div className="sidebar-note-title">
               <strong>{note.title}</strong>
               <button>Delete</button>
