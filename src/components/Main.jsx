@@ -10,7 +10,7 @@ const Main = () => {
       </div>
       <div className="app-main-note-preview">
         <h1 className="preview-title">Title</h1>
-        <div className="markdown-preview">Conetntsof the note</div>
+        <div className="markdown-preview">Contents of the note</div>
       </div>
 
     </div>

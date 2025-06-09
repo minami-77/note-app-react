@@ -12,14 +12,13 @@
   padding: 25px;
 }
 
-.app-main-note-edit input,
-textarea {
+.app-main-note-edit input,textarea {
   /* inline==>block */
   display: block;
-  border: 1px sold #ddd;
+  border: 1px solid #ddd;
   margin-bottom: 20px;
   width: 100%;
-  height :calc(50vh-130px);
+  height : calc(50vh - 130px);
   padding:5px;
   resize: none;
   font-size:16px;
@@ -28,4 +27,19 @@ textarea {
 .app-main-note-edit input{
   height: 50px;
   font-size: 2rem;
+}
+
+.app-main-note-preview{
+  border-top: 1px solid #ddd;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.preview-title{
+  padding: 25px 25px 0px 25px;
+  margin: 0;
+}
+
+.markdown-preview {
+  padding: 0 25px 25px 25px;
 }
