@@ -23,10 +23,17 @@ function App() {
     console.log(notes);
   };
 
+  // id comes from Sidebar.jsx
+  const onDeleteNote = (id) => {
+    // filter function (JS)
+    const filterNotes = notes.filter((note) => note.id !== id);
+    setNotes(filterNotes);
+  }
+
   return (
     <>
       <div className='App'>
-        <Sidebar onAddNote={onAddNote} notes={notes}/>
+        <Sidebar onAddNote={onAddNote} notes={notes} onDeleteNote={onDeleteNote} />
         <Main/>
       </div>
     </>
