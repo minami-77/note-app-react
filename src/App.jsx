@@ -6,8 +6,9 @@ import { useState } from 'react';
 import uuid from "react-uuid";
 
 function App() {
-
+  // An array of notes
   const [notes, setNotes] = useState([]);
+  // note which is selected(active)
   const [activeNote, setActiveNote]= useState(false);
 
   const onAddNote=()=>{
@@ -31,6 +32,10 @@ function App() {
     setNotes(filterNotes);
   }
 
+  const getActiveNote = () => {
+    return notes.find((note) => note.id === activeNote);
+  }
+
   return (
     <>
       <div className='App'>
@@ -42,7 +47,7 @@ function App() {
           setActiveNote={setActiveNote}
           />
         <Main
-          activeNote={activeNote}
+          activeNote={getActiveNote}
         />
       </div>
     </>

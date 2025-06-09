@@ -9,13 +9,17 @@ const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) =>
         <button onClick={onAddNote}>Add</button>
       </div>
       <div className="app-sidebar-notes">
-      {/* map関数 */}
+        {/* Use map function to generate the UI from the notes array */}
         {notes.map((note) =>
           <div
-            // (note.id) is regarded as true
-            className = {`app-sidebar-note ${note.id === activeNote && "active"}`}
-            key = {note.id}
-            onClick = {()=>setActiveNote(note.id)}
+            // Iterate through the notes array
+            // If note.id matches activeNote, the expression (note.id === activeNote) returns true
+            // Then "active" is added to the className for CSS styling
+            className={`app-sidebar-note ${note.id === activeNote && "active"}`}
+            key={note.id}
+            // When clicked, set note.id as the new value of activeNote
+            // This triggers a re-render, and the map function runs again
+            onClick={() => setActiveNote(note.id)}
           >
             <div className="sidebar-note-title">
               <strong>{note.title}</strong>
