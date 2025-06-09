@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Sidebar.css";
 
-const Sidebar = ({onAddNote, notes, onDeleteNote}) => {
+const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) => {
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
@@ -11,7 +11,12 @@ const Sidebar = ({onAddNote, notes, onDeleteNote}) => {
       <div className="app-sidebar-notes">
       {/* map関数 */}
         {notes.map((note) =>
-          <div className="app-sidebar-note" key={note.id}>
+          <div
+            className={`app-sidebar-note ${note.id===activeNote && "active"}`}
+            key={note.id}
+            // (note.id) is regarded as true
+            onClick={()=>setActiveNote(note.id)}
+          >
             <div className="sidebar-note-title">
               <strong>{note.title}</strong>
               {/* use arrow function with parameter. not to ignite when reload */}
