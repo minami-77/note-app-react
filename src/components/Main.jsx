@@ -2,6 +2,10 @@ import React from 'react'
 import "./Main.css";
 
 const Main = ({ activeNote }) => {
+  const onEditNote = () => {
+
+  }
+
   return (
     <div className="app-main">
       <div className="app-main-note-edit">
