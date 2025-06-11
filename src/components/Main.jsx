@@ -1,8 +1,17 @@
 import React from 'react'
 import "./Main.css";
 
-const Main = ({ activeNote }) => {
-  const onEditNote = () => {
+const Main = ({ activeNote, onUpdateNote }) => {
+  const onEditNote = (key, value) => {
+    onUpdateNote({
+      // use spread syntax. "id: activeNote.id" can only display title or content
+      ...activeNote,
+      //動的キー？
+      [key]: value,
+      modDate:Date.now()
+
+    })
+
 
   }
 
@@ -20,7 +29,7 @@ const Main = ({ activeNote }) => {
         <textarea
           id="content"
           placeholder="write note contents here."
-          value={activeNote}
+          value={activeNote.content}
           onChange={(e)=>onEditNote("content", e.target.value)}
         ></textarea>
       </div>
