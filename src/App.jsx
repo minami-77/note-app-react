@@ -38,17 +38,23 @@ function App() {
     return notes.find((note) => note.id === activeNote);
   }
 
+  // receive result of function onUpdateNote from Main.jsx as a parameter updatedNote
   const onUpdateNote = (updatedNote) => {
     // return an array of updated notes
     const updatedNotesArray = notes.map((note) => {
-      if(note.id ===updatedNote.id)
+      // updated.note means selected note in Main.jsx
+      if(note.id === updatedNote.id) {
+        console.log(updatedNote);
+        // can edit&update only selected note
         return updatedNote;
-      else
+      } else {
+        // cannot update other notes
         return note;
+      }
     });
+    console.log(updatedNotesArray);
     // can pass updatedNote to sidebar as note
     setNotes(updatedNotesArray);
-
   }
 
   return (
