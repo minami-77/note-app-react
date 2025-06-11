@@ -33,6 +33,8 @@ function App() {
   }
 
   const getActiveNote = () => {
+    // activeNote is set  with onClick in sidebar.jsx
+    // return the value of activeNote using find function(JS)
     return notes.find((note) => note.id === activeNote);
   }
 
@@ -47,7 +49,7 @@ function App() {
           setActiveNote={setActiveNote}
           />
         <Main
-          activeNote={getActiveNote}
+          activeNote={getActiveNote()}
         />
       </div>
     </>

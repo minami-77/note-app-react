@@ -6,6 +6,9 @@ const Main = ({ activeNote }) => {
 
   }
 
+  if(!activeNote){
+    return <div className="no-active-note">Note is not selected</div>
+  }
   return (
     <div className="app-main">
       <div className="app-main-note-edit">
@@ -23,7 +26,7 @@ const Main = ({ activeNote }) => {
       </div>
       <div className="app-main-note-preview">
         <h1 className="preview-title">{activeNote.title}</h1>
-        <div className="markdown-preview">Contents of the note</div>
+        <div className="markdown-preview">{activeNote.content}</div>
       </div>
 
     </div>
