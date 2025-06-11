@@ -2,12 +2,13 @@ import React from 'react'
 import "./Main.css";
 
 const Main = ({ activeNote, onUpdateNote }) => {
-  // receive key and value from input and textarea
+  // Receives key and value from input and textarea
   const onEditNote = (key, value) => {
     onUpdateNote({
-      // use spread syntax. "id: activeNote.id" can only display title or content
+      // Use spread syntax to keep other properties
+      // ("id: activeNote.id" can only display title or content)
       ...activeNote,
-      // Dynamic key (動的キー) can get both title and content as a key
+      // Dynamic key (動的キー): either title or content is passed as a key
       [key]: value,
       modDate:Date.now()
     })
@@ -23,15 +24,15 @@ const Main = ({ activeNote, onUpdateNote }) => {
           id="title"
           type="text"
           value={activeNote.title}
-          // When text changed, it triggers a re-render, and onEditNote runs again
-          // it passes "title" as a key, e.target.value as a value
+          // When the text changes, it triggers a re-render, and calls onEditNote
+          // Passes "title" as a key, e.target.value as a value
           onChange={(e)=>onEditNote("title", e.target.value)}/>
         <textarea
           id="content"
           placeholder="write note contents here."
           value={activeNote.content}
-          // When text changed, it triggers a re-render, and onEditNote runs again
-          // it passes "content" as a key, e.target.value as a value
+          // When the text changes, it triggers a re-render, and calls onEditNote
+          // Passes "content" as a key, e.target.value as a value
           onChange={(e)=>onEditNote("content", e.target.value)}
         ></textarea>
       </div>

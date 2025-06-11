@@ -8,52 +8,52 @@ import uuid from "react-uuid";
 function App() {
   // An array of notes
   const [notes, setNotes] = useState([]);
-  // note which is selected(active)
+  // The currently selected (active) note
   const [activeNote, setActiveNote]= useState(false);
 
   const onAddNote=()=>{
     console.log("New note added.");
     const newNote= {
-      // generate random id with uuid
+      // Generate a random id with uuid
       id:uuid(),
       title: "New note",
       content: "contents of new note",
       modDate: Date.now(),
     };
-    // spread syntax
+    // Spread syntax to add the new note to the array
     setNotes([...notes, newNote]);
     console.log(notes);
   };
 
   // id comes from Sidebar.jsx
   const onDeleteNote = (id) => {
-    // filter function (JS)
+    // Filter out the note to be deleted using filter() function (JS)
     const filterNotes = notes.filter((note) => note.id !== id);
     setNotes(filterNotes);
   }
 
   const getActiveNote = () => {
     // activeNote is set  with onClick in sidebar.jsx
-    // return the value of activeNote using find function(JS)
+    // Return the selected note (value of activeNote) using find() function(JS)
     return notes.find((note) => note.id === activeNote);
   }
 
-  // receive result of function onUpdateNote from Main.jsx as a parameter updatedNote
+  // Receives the updated note (the result of function onUpdateNote) from Main.jsx
   const onUpdateNote = (updatedNote) => {
-    // return an array of updated notes
+    // Create a new array of notes with the updated one
     const updatedNotesArray = notes.map((note) => {
-      // updated.note means selected note in Main.jsx
+      // updatedNote refers to (=means) the note being edited in Main.jsx
       if(note.id === updatedNote.id) {
         console.log(updatedNote);
-        // can edit&update only selected note
+        // Only update the selected note
         return updatedNote;
       } else {
-        // cannot update other notes
+        // Return the note unchanged
         return note;
       }
     });
     console.log(updatedNotesArray);
-    // can pass updatedNote to sidebar as note
+    // Update the notes array with modified note
     setNotes(updatedNotesArray);
   }
 
