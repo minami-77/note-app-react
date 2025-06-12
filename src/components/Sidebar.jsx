@@ -2,6 +2,9 @@ import React from 'react'
 import "./Sidebar.css";
 
 const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) => {
+  // Sort notes to place the latest one comes the first
+  const sortedNotes = notes.sort((a,b)=> b.modDate - a.modDate);
+
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
@@ -10,7 +13,7 @@ const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) =>
       </div>
       <div className="app-sidebar-notes">
         {/* Use map function to generate the UI from the notes array */}
-        {notes.map((note) =>
+        {sortedNotes.map((note) =>
           <div
             // Iterate through the notes array
             // If note.id matches activeNote, the expression (note.id === activeNote) returns true

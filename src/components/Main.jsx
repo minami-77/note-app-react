@@ -25,6 +25,7 @@ const Main = ({ activeNote, onUpdateNote }) => {
         <input
           id="title"
           type="text"
+          placeholder="Title"
           value={activeNote.title}
           // When the text changes, it triggers a re-render, and calls onEditNote
           // Passes "title" as a key, e.target.value as a value

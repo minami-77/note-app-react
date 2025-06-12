@@ -16,8 +16,8 @@ function App() {
     const newNote= {
       // Generate a random id with uuid
       id:uuid(),
-      title: "New note",
-      content: "contents of new note",
+      title: "",
+      content: "",
       modDate: Date.now(),
     };
     // Spread syntax to add the new note to the array
