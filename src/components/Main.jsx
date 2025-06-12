@@ -1,5 +1,7 @@
 import React from 'react'
 import "./Main.css";
+// import react-markdown library
+import Markdown from 'react-markdown';
 
 const Main = ({ activeNote, onUpdateNote }) => {
   // Receives key and value from input and textarea
@@ -38,7 +40,12 @@ const Main = ({ activeNote, onUpdateNote }) => {
       </div>
       <div className="app-main-note-preview">
         <h1 className="preview-title">{activeNote.title}</h1>
-        <div className="markdown-preview">{activeNote.content}</div>
+        {/* enclose with component <></> */}
+        <div className="markdown-preview">
+          <Markdown>
+            {activeNote.content}
+          </Markdown>
+        </div>
       </div>
 
     </div>
