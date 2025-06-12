@@ -2,7 +2,7 @@ import React from 'react'
 import "./Sidebar.css";
 
 const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) => {
-  // Sort notes to place the latest one comes the first
+  // Sort notes by modification date in descending order (latest first)
   const sortedNotes = notes.sort((a,b)=> b.modDate - a.modDate);
 
   return (
