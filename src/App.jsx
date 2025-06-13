@@ -8,17 +8,22 @@ import uuid from "react-uuid";
 function App() {
   // An array of notes
   // Get notes from local storage. If not, use []
-  // converts JSON to JS value
+  // converts JSON to JS value(notes is saved in local storage  with JSON)
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes"))|| []);
   // The currently selected (active) note
   const [activeNote, setActiveNote]= useState(false);
 
   // Store notes in local storage, when notes updated
   // Converts JS value to a JSON(JS object notation) string using JSON.stringify()
-  // (local storage : JSON)
   useEffect(()=>{
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes])
+
+
+  // Select the first note when reload
+  useEffect(()=>{
+    setActiveNote(notes[0].id);
+  }, [])
 
   const onAddNote=()=>{
     console.log("New note added.");
