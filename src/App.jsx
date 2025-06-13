@@ -7,18 +7,17 @@ import uuid from "react-uuid";
 
 function App() {
   // An array of notes
-  // Get notes from local storage. If not, use []
-  // converts JSON to JS value(notes is saved in local storage  with JSON)
+  // Retrieve notes from localStorage. If nothing is saved, use an empty array []
+  // Parse the JSON string into a JavaScript value (notes are stored in localStorage as JSON)
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes"))|| []);
   // The currently selected (active) note
   const [activeNote, setActiveNote]= useState(false);
 
-  // Store notes in local storage, when notes updated
-  // Converts JS value to a JSON(JS object notation) string using JSON.stringify()
+  // Save notes to localStorage whenever notes are updated
+  // Convert the JavaScript object into a JSON string using JSON.stringify()
   useEffect(()=>{
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes])
-
 
   // Select the first note when reload
   useEffect(()=>{
@@ -28,13 +27,13 @@ function App() {
   const onAddNote=()=>{
     console.log("New note added.");
     const newNote= {
-      // Generate a random id with uuid
+      // Generate a unique ID using uuid
       id:uuid(),
       title: "",
       content: "",
       modDate: Date.now(),
     };
-    // Spread syntax to add the new note to the array
+    // Use spread syntax to add the new note to the existing array
     setNotes([...notes, newNote]);
     console.log(notes);
   };
